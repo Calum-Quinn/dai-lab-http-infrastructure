@@ -60,7 +60,7 @@ The goal of this step is to build a Docker image that contains a static HTTP ser
 
 ### Acceptance criteria
 
-- [ ] You have created a separate folder in your respository for your static Web server.
+- [x] You have created a separate folder in your respository for your static Web server.
 - [ ] You have a Dockerfile based on the Nginx image. The Dockerfile copies the static site content into the image.
 - [ ] You have configured the `nginx.conf` configuration file to serve the static content on a port (normally 80).
 - [ ] You are able to explain the content of the `nginx.conf` file.
