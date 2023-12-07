@@ -36,7 +36,7 @@ General instructions
 - Read carefully all the **acceptance criteria** of each step. They will tell you what you need to do to complete the step.
 - After the lab, each group will perform a short **demo** of their infrastructure.
 - **You have to write a report with a short descriptioin for each of the steps.** Please do that directly in the repo, in one or more markdown files. Start in the README.md file at the root of your directory.
-- The report must contain the procedure that you have followed to prove that your configuration is correct (what you did do make the step work and what you would do if you were doing a demo).
+- The report must contain the procedure that you have followed to prove that your configuration is correct (what you did to make the step work and what you would do if you were doing a demo).
 
 
 Step 0: GitHub repository
@@ -49,8 +49,8 @@ Create a GitHub repository for your project. You will use this repository to col
 
 ### Acceptance criteria
 
-- [ ] You have created a GitHub repository for your project.
-- [ ] The respository contains a Readme file that you will use to document your project.
+- [x] You have created a GitHub repository for your project.
+- [x] The respository contains a Readme file that you will use to document your project.
 
 
 Step 1: Static Web site
