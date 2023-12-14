@@ -1,0 +1,5 @@
+services:
+  static-web-server:
+    build: ./static-web-server
+    ports:
+      - 8080:80
