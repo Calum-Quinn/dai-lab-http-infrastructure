@@ -12,5 +12,3 @@
 `docker rm static-web-server`
 
 `docker rmi static-web-server`
-
-`docker rmi dai-lab-http-infrastructure-static-web-server --force`
