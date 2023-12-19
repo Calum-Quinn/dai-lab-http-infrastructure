@@ -17,3 +17,8 @@ The nginx.conf file configures:
 - The location of the files to use for the Website.
 - The default file to use for the content.
 - Custom error pages to create
+
+### compose.yaml
+The compose.yaml configures:
+- The image to be built by docker compose.
+- The local and external ports to use for accessing the image.
