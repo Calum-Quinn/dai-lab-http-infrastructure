@@ -110,8 +110,8 @@ Once you're finished with the implementation, create a Dockerfile for the API se
 - [x] You can start and stop the API server using docker compose.
 - [x] You can access both the API and the static server from your browser.
 - [x] You can rebuild the docker image with docker compose.
-- [ ] You can do demo where use an API testing tool to show that all CRUD operations work.
-- [ ] You have **documented** your implementation in your report.
+- [x] You can do demo where use an API testing tool to show that all CRUD operations work.
+- [x] You have **documented** your implementation in your report.
 
 
 Step 4: Reverse proxy with Traefik

@@ -1,6 +1,3 @@
-# TODO : Copy target folder from build stage and run the jar file
-
-# Use an official OpenJDK runtime as a parent image with Java 21
 FROM eclipse-temurin:21 as builder
 
 WORKDIR /app
