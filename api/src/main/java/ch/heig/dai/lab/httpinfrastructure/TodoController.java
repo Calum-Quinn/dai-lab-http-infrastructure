@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * <a href="https://github.com/HEIGVD-Course-DAI/dai-codeexamples/blob/main/6-http/javalin/src/main/java/app/UserController.java">...</a>
  */
 public class TodoController {
-    private final ConcurrentHashMap<Integer, Todo> todos = new ConcurrentHashMap<Integer, Todo>();
+    private final ConcurrentHashMap<Integer, Todo> todos = new ConcurrentHashMap<>();
     private int lastId = 0;
 
     public TodoController() {
