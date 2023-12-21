@@ -1,6 +1,5 @@
-package main.java.ch.heig.dai.lab.httpinfrastructure;
+package ch.heig.dai.lab.httpinfrastructure;
 
-import ch.heig.dai.lab.httpinfrastructure.TodoController;
 import io.javalin.Javalin;
 
 /**

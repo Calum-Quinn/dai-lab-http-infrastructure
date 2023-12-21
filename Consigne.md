@@ -105,8 +105,8 @@ Once you're finished with the implementation, create a Dockerfile for the API se
 
 ### Acceptance criteria
 
-- [ ] Your API supports all CRUD operations.
-- [ ] You are able to explain your implementation and walk us through the code.
+- [x] Your API supports all CRUD operations.
+- [x] You are able to explain your implementation and walk us through the code.
 - [ ] You can start and stop the API server using docker compose.
 - [ ] You can access both the API and the static server from your browser.
 - [ ] You can rebuild the docker image with docker compose.

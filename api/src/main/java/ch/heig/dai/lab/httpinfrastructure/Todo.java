@@ -4,6 +4,9 @@ public class Todo {
     private String task;
     private boolean completed;
 
+    public Todo() {
+    }
+
     public Todo(String task, boolean completed) {
         this.task = task;
         this.completed = completed;
