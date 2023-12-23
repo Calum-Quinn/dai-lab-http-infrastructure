@@ -16,6 +16,8 @@ FROM eclipse-temurin:21 as app
 
 WORKDIR /app
 
-COPY --from=builder /app/target/httpinfrastructure-api-1.0-jar-with-dependencies.jar /app/
+COPY --from=builder /app/target/httpinfrastructure-api-1.0-jar-with-dependencies.jar /app
 
 ENTRYPOINT ["java", "-jar", "httpinfrastructure-api-1.0-jar-with-dependencies.jar"]
+
+EXPOSE 7000

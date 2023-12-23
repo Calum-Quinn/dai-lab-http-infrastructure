@@ -12,6 +12,7 @@ public class Api {
         Javalin app = Javalin.create().start(7000);
 
         TodoController todoController = new TodoController();
+        app.get("/api", todoController::getRoot);
         app.get("/api/todos", todoController::getAll);
         app.get("/api/todos/{id}", todoController::getOne);
         app.post("/api/todos", todoController::create);

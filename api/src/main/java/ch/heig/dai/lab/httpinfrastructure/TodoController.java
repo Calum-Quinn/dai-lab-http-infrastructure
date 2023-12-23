@@ -19,6 +19,10 @@ public class TodoController {
         todos.put(++lastId, new Todo("Go to the gym", false));
     }
 
+    public void getRoot(Context ctx) {
+        ctx.result("Todos API");
+    }
+
     public void getOne(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
         ctx.json(todos.get(id));
