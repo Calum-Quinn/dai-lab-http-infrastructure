@@ -62,6 +62,27 @@ This file configures:
 
 ## Traefik reverse proxy
 
+### Configuration
+
+We added a new service to the `compose.yaml` file to configure the Traefik reverse proxy. This service uses the official
+Traefik image and exposes the ports 80 to access our containers and 8080 to access the Traefik dashboard. Then we added
+labels to the static-web-server and api services to configure Traefik. These labels specify the domain name to use for
+the service and the port to use to access the service.
+
+```yaml
+# static-web-server
+labels:
+  - traefik.http.routers.static-web-server.rule=Host(`localhost`)
+  - traefik.http.services.static-web-server.loadbalancer.server.port=80
+
+...
+
+# api
+labels:
+  - traefik.http.routers.api.rule=Host(`localhost`) && PathPrefix(`/api`)
+  - traefik.http.services.api.loadbalancer.server.port=7000
+```
+
 ### Why it is useful
 
 The Traefik reverse proxy is useful because it allows us to access the API and the static web server with a single
@@ -76,10 +97,11 @@ status. This dashboard is accessible at the address `http://localhost:8080`.
 
 ## Scalability and load balancing
 
-### `compose.yaml` configuration
+### Configuration
 
 To allow docker compose to start multiple instances of the containers, we added the `deploy` with the `replicas` option
-to the `compose.yaml` file. This option allows us to specify the number of instances of the container to start.
+to the `compose.yaml` file under the static-web-server and api services. This option allows us to specify the number of
+instances of the container to start.
 
 ### How to dynamically update the number of instances
 
@@ -95,6 +117,37 @@ the static web server and 7 instances of the API :
 ```shell
 docker compose up -d --scale static-web-server=6 --scale api=7
 ```
+
+## Load balancing with round-robin and sticky sessions
+
+### Configuration
+
+To allow sticky sessions for the api, we simply added these two labels to the `compose.yaml` file under the api
+service :
+
+```yaml
+- traefik.http.services.api.loadbalancer.sticky=true
+- traefik.http.services.api.loadbalancer.sticky.cookie.name=apicookie
+```
+
+These lines specify that the load balancer should use sticky sessions for the api and that the cookie name to use
+is `apicookie`.
+
+### How to test
+
+To test the sticky sessions, we can try to access the api multiple times and check that we always get the same instance
+of the api. We can see that the terminal always prints the same instance of the api.
+
+![img.png](docs/img.png)
+
+We can then try to access the api from another browser or in incognito mode and see that we get another instance.
+
+![img_1.png](docs/img_1.png)
+
+For the static web server, nothing changed because we didn't add sticky sessions for it. The load balancer still uses
+round-robin to balance the load between the instances.
+
+![img_2.png](docs/img_2.png)
 
 ## compose.yaml - A COMPLETER
 
