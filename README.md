@@ -149,6 +149,25 @@ round-robin to balance the load between the instances.
 
 ![img_2.png](docs/img_2.png)
 
+## Securing Traefik with HTTPS
+
+### Certificate generation
+
+To secure Traefik with HTTPS, we first need to generate a certificate. To do this, we used the `openssl` tool. This tool
+allows us to generate a self-signed certificate using the private key and the certificate signing request.
+
+```shell
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"
+```
+
+### traefik.yaml
+
+To configure Traefik to use HTTPS, we first need to create a `traefik.yaml` file. This file configures:
+
+- The provider which is docker
+- The dashboard enabled
+- The entrypoints to use for the infrastructure
+
 ## compose.yaml - A COMPLETER
 
 The compose.yaml configures:
