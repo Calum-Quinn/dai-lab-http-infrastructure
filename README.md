@@ -74,6 +74,28 @@ manageable and more secure.
 The Traefik reverse proxy also has a dashboard that allows us to see the different services that are running and their
 status. This dashboard is accessible at the address `http://localhost:8080`.
 
+## Scalability and load balancing
+
+### `compose.yaml` configuration
+
+To allow docker compose to start multiple instances of the containers, we added the `deploy` with the `replicas` option
+to the `compose.yaml` file. This option allows us to specify the number of instances of the container to start.
+
+### How to dynamically update the number of instances
+
+To dynamically update the number of instances of the containers, we must first start the infrastructure using :
+
+```shell
+docker compose up -d
+```
+
+Then we can use this command to update the number of instances of the containers. For example, to start 6 instances of
+the static web server and 7 instances of the API :
+
+```shell
+docker compose up -d --scale static-web-server=6 --scale api=7
+```
+
 ## compose.yaml - A COMPLETER
 
 The compose.yaml configures:

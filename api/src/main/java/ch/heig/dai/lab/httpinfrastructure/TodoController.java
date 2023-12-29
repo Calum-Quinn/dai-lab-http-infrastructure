@@ -21,27 +21,32 @@ public class TodoController {
 
     public void getRoot(Context ctx) {
         ctx.result("Todos API");
+        System.out.println("GET /api");
     }
 
     public void getOne(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
         ctx.json(todos.get(id));
+        System.out.println("GET /api/todos/" + id);
     }
 
     public void getAll(Context ctx) {
         ctx.json(todos);
+        System.out.println("GET /api/todos");
     }
 
     public void create(Context ctx) {
         Todo todo = ctx.bodyAsClass(Todo.class);
         todos.put(++lastId, todo);
         ctx.status(201);
+        System.out.println("POST /api/todos");
     }
 
     public void delete(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
         todos.remove(id);
         ctx.status(204);
+        System.out.println("DELETE /api/todos/" + id);
     }
 
     public void update(Context ctx) {
@@ -49,5 +54,6 @@ public class TodoController {
         Todo todo = ctx.bodyAsClass(Todo.class);
         todos.put(id, todo);
         ctx.status(200);
+        System.out.println("PUT /api/todos/" + id);
     }
 }
