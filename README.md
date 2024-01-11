@@ -167,6 +167,9 @@ To configure Traefik to use HTTPS, we first need to create a `traefik.yaml` file
 - The provider, which is docker
 - The dashboard to be enabled
 - The entrypoints to use for the infrastructure
+- The certificates to use for HTTPS
+
+> Note : our certificate is not showing on the web browser but the teacher has validated our configuration.
 
 ## compose.yaml
 

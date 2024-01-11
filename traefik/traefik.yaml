@@ -4,9 +4,9 @@ api:
   dashboard: true
   insecure: true
 entryPoints:
-  web:
+  http:
     address: ":80"
-  websecure:
+  https:
     address: ":443"
 tls:
   certificates:

@@ -11,7 +11,7 @@ services:
       - ./traefik/traefik.yaml:/etc/traefik/traefik.yaml
       - ./traefik/certificates:/etc/traefik/certificates
     labels:
-      - traefik.http.routers.reverse-proxy.entrypoints=websecure
+      - traefik.http.routers.reverse-proxy.entrypoints=https
       - traefik.http.routers.reverse-proxy.tls=true
 
   static-web-server:
@@ -19,7 +19,7 @@ services:
     labels:
       - traefik.http.routers.static-web-server.rule=Host(`localhost`)
       - traefik.http.services.static-web-server.loadbalancer.server.port=80
-      - traefik.http.routers.static-web-server.entrypoints=websecure
+      - traefik.http.routers.static-web-server.entrypoints=https
       - traefik.http.routers.static-web-server.tls=true
     deploy:
       replicas: 2
@@ -31,7 +31,7 @@ services:
       - traefik.http.services.api.loadbalancer.server.port=7000
       - traefik.http.services.api.loadbalancer.sticky=true
       - traefik.http.services.api.loadbalancer.sticky.cookie.name=apicookie
-      - traefik.http.routers.api.entrypoints=websecure
+      - traefik.http.routers.api.entrypoints=https
       - traefik.http.routers.api.tls=true
     deploy:
       replicas: 3
