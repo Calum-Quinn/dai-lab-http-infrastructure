@@ -8,8 +8,8 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik.yaml:/etc/traefik/traefik.yaml
-      - ./certificates:/etc/traefik/certificates
+      - ./traefik/traefik.yaml:/etc/traefik/traefik.yaml
+      - ./traefik/certificates:/etc/traefik/certificates
     labels:
       - traefik.http.routers.reverse-proxy.entrypoints=websecure
       - traefik.http.routers.reverse-proxy.tls=true
