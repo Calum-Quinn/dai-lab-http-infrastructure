@@ -164,18 +164,33 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3
 
 To configure Traefik to use HTTPS, we first need to create a `traefik.yaml` file. This file configures:
 
-- The provider which is docker
-- The dashboard enabled
+- The provider, which is docker
+- The dashboard to be enabled
 - The entrypoints to use for the infrastructure
 
-## compose.yaml - A COMPLETER
+## compose.yaml
 
 The compose.yaml configures:
 
+- The reverse proxy image
+    - The image from traefik
+    - The local and external ports to use for accessing the image
+    - The volumes to be mounted
+    - The entrypoint for using HTTPS
+    - The usage of TLS
 - The static web server image
-    - The image to be built by docker compose
-    - The local and external ports to use for accessing the image
-- The API image
-    - The image name
     - The image to be built
-    - The local and external ports to use for accessing the image
+    - The host for which it will handle requests
+    - The port to which the load balancer should send data
+    - The entrypoint for using HTTPS
+    - The usage of TLS
+    - The amount to deploy
+- The API image
+    - The image to be built
+    - The host for which it will handle requests
+    - The port to which the load balancer should send data
+    - The usage of sticky sessions
+    - The cookies to use for sticky sessions
+    - The entrypoint for using HTTPS
+    - The usage of TLS
+    - The amount to deploy
