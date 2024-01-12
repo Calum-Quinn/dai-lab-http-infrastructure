@@ -197,3 +197,14 @@ The compose.yaml configures:
     - The entrypoint for using HTTPS
     - The usage of TLS
     - The amount to deploy
+
+## Optional steps
+
+### Integration API - static Web site
+
+In the `index.html` file of the static web server, we added a JavaScript script (line 207) that fetches the API every 3
+seconds and displays all the fetched todos.
+We used the JavaScript `fetch()` API to fetch our Todo API.
+
+The function `getTodos()` fetches the API and converts the received JSON to an array of todos. Then it calls the
+function `handleApiData()` which clears a specific HTML container and then adds the HTML code for each todo into it.
