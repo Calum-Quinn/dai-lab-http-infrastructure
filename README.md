@@ -4,7 +4,7 @@
 
 ### Nginx configuration
 
-The nginx configuration is located in the [config](static_web_server/config/nginx.conf) folder.
+The nginx configuration is located in the [config](static_web_server/config) folder.
 This file configures :
 
 - The number of connections that each worker can handle
@@ -100,7 +100,7 @@ status. This dashboard is accessible at the address `http://localhost:8080`.
 ### Configuration
 
 To allow docker compose to start multiple instances of the containers, we added the `deploy` with the `replicas` option
-to the `compose.yaml` file under the static-web-server and api services. This option allows us to specify the number of
+to the [compose.yaml](compose.yaml) file under the static-web-server and api services. This option allows us to specify the number of
 instances of the container to start.
 
 ### How to dynamically update the number of instances
