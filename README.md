@@ -64,7 +64,7 @@ This file configures:
 
 ### Configuration
 
-We added a new service to the `compose.yaml` file to configure the Traefik reverse proxy. This service uses the official
+We added a new service to the [compose.yaml](compose.yaml) file to configure the Traefik reverse proxy. This service uses the official
 Traefik image and exposes the ports 80 to access our containers and 8080 to access the Traefik dashboard. Then we added
 labels to the static-web-server and api services to configure Traefik. These labels specify the domain name to use for
 the service and the port to use to access the service.
@@ -122,7 +122,7 @@ docker compose up -d --scale static-web-server=6 --scale api=7
 
 ### Configuration
 
-To allow sticky sessions for the api, we simply added these two labels to the `compose.yaml` file under the api
+To allow sticky sessions for the api, we simply added these two labels to the [compose.yaml](compose.yaml) file under the api
 service :
 
 ```yaml
@@ -162,7 +162,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3
 
 ### traefik.yaml
 
-To configure Traefik to use HTTPS, we first need to create a `traefik.yaml` file. This file configures:
+To configure Traefik to use HTTPS, we first need to create a [traefik.yaml](traefik.yaml) file. This file configures:
 
 - The provider, which is docker
 - The dashboard to be enabled
@@ -173,7 +173,7 @@ To configure Traefik to use HTTPS, we first need to create a `traefik.yaml` file
 
 ## compose.yaml
 
-The compose.yaml configures:
+The [compose.yaml](compose.yaml) configures all the necessary information to be able to use docker compose for our infrastructure:
 
 - The reverse proxy image
     - The image from traefik
@@ -202,7 +202,7 @@ The compose.yaml configures:
 
 ### Integration API - static Web site
 
-In the `index.html` file of the static web server, we added a JavaScript script (line 207) that fetches the API every 3
+In the [index.html](static_web_server/content/index.html) file of the static web server, we added a JavaScript script (line 207) that fetches the API every 3
 seconds and displays all the fetched todos.
 We used the JavaScript `fetch()` API to fetch our Todo API.
 
