@@ -162,7 +162,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3
 
 ### traefik.yaml
 
-To configure Traefik to use HTTPS, we first need to create a [traefik.yaml](traefik.yaml) file. This file configures:
+To configure Traefik to use HTTPS, we first need to create a [traefik.yaml](/traefik/traefik.yaml) file. This file configures:
 
 - The provider, which is docker
 - The dashboard to be enabled
