@@ -195,8 +195,24 @@ The [compose.yaml](compose.yaml) configures all the necessary information to be 
     - The entrypoint for using HTTPS
     - The usage of TLS
     - The amount to deploy
+- The Portainer image
+    - The image from portainer (Community Edition)
+    - The command that specifies the Docker socket that Portainer should use to communicate with the Docker daemon on the host
+    - Ensures that the "portainer" container restarts automatically if it stops or encounters an issue
+    - Specifies the mapping of ports between the host and the container
+    - Mounts the Docker socket from the host into the container
+    - Creates and mounts a Docker volume named "portainer_data" into the "/data" directory in the container
+- Volumes
+    - Defines a volume named "portainer_data." This allows the volume to be shared and reused across multiple containers
 
 ## Optional steps
+
+### Management UI
+
+To manage our infrastructure, we found a tool called [Portainer](https://www.portainer.io/). This tool allows us to 
+manage our docker containers and images. The management UI is accessible at the address `http://localhost:9000`.
+To enable Portainer, we added a new service to the [compose.yaml](compose.yaml) file. This service uses the official
+Portainer image (Community Edition) and exposes the port 9000 to access the management UI.
 
 ### Integration API - static Web site
 
