@@ -1,5 +1,27 @@
 # DAI Labo HTTP Infrastructure
 
+## How to run the infrastructure
+
+To run the infrastructure, you must first clone the repository using :
+
+```shell
+git clone https://github.com/Calum-Quinn/dai-lab-http-infrastructure.git
+```
+
+Then you must build the API using maven :
+
+```shell
+cd api
+mvn clean package
+```
+
+Then you can start the infrastructure using :
+
+```shell
+cd ..
+docker compose up -d
+```
+
 ## Static Web server
 
 ### Nginx configuration
@@ -47,18 +69,11 @@ configures the Javalin server. It also defines the routes for each method of the
 The Dockerfile is located at the root of the [api](api) folder.
 This file configures:
 
-- An app builder to automatically build the application
-    - Which image it uses 'eclipse-temurin:21' for java 21
-    - The working directory '/app'
-    - What files to copy to the container (.mvn,mvnw,pom.xml,src)
-    - The command to download the dependencies
-    - The command to use to build the application
-- The app
-    - Which image it uses 'eclipse-temurin:21' for java 21
-    - The working directory '/app'
-    - The .jar file built by the app builder to copy to the container
-    - The command to use to execute the .jar file
-    - The port to expose for external connection
+- Which image it uses 'eclipse-temurin:21' for java 21
+- The working directory '/app'
+- The .jar file built to copy to the container
+- The command to use to execute the .jar file
+- The port to expose for external connection
 
 ## Traefik reverse proxy
 
